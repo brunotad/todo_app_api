@@ -1,0 +1,1 @@
+module.exports = app.get('/usuarios', (req, res)=>res.send("servidor rodando na rota get de usuario"))
