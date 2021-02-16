@@ -2,11 +2,9 @@ const UsuariosDAO = require('../DAO/usuarios-dao')
 
 module.exports = (app, bd) =>
 {
-    
     const usuariosDAO = new UsuariosDAO(bd);
 
     app.get('/usuarios', async (req, resp)=>{
-
         try{
             const verUsuarios = await usuariosDAO.allUsuarios();
             resp.send(verUsuarios);
