@@ -42,7 +42,7 @@ module.exports = class TarefasDAO
                 if(erro) reject('Não foi possível deletar a Tarefa');
                 else resolve('Tarefa deletada');  
             });
-        })
+        });
     }
 
     updateTarefas(parametro)

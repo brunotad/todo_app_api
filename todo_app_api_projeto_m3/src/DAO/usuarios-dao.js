@@ -42,7 +42,7 @@ module.exports = class UsuariosDAO
                 if(erro) reject('Não foi possível deletar o usuário');
                 else resolve('Usuário deletado');  
             });
-        })
+        });
     }
 
     updateUsuarios(parametro)

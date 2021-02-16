@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./database.db');
 
-//USUÁRIOS
+//CRIAÇÃO DA TABELA DE USUARIOS
 const USUARIOS_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "USUARIOS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -11,17 +11,18 @@ CREATE TABLE IF NOT EXISTS "USUARIOS" (
   );`;
 
 const ADD_USUARIOS_DATA = `
-INSERT INTO USUARIOS (ID, NOME, EMAIL, SENHA)
+INSERT INTO USUARIOS (NOME, EMAIL, SENHA)
 VALUES 
-    (1, 'Lucas', 'lucas.oliveira@bol.com.br', '***'),
-    (2, 'Erica', 'erica.ribeiro@gmail.com', '****'),
-    (3, 'Augusto', 'augusto_fl@yahoo.com', '****'),
-    (4, 'Daniel', 'daniel_fl@yahoo.com', '****'),
-    (5, 'Lorenzo', 'lorenzo_fl@yahoo.com', '****'),
-    (6, 'Bruno', 'bruno_fl@yahoo.com', '****'),
-    (7, 'Marcus', 'marcus_fl@yahoo.com', '****'),
-    (8, 'Joao', 'joao_fl@yahoo.com', '****')
-
+    ('Lucas Oliveira', 'lucas.oliveira@gmail.com', '*****'),
+    ('Erica Ribeiro', 'erica.ribeiro@gmail.com', '*****'),
+    ('Augusto Fazano', 'augusto.fazano@outlook.com', '*****'),
+    ('Daniel Castro', 'daniel.castro@yahoo.com.br', '*****'),
+    ('Lorenzo Cunha', 'lorenzo.cunha@yahoo.com.br', '*****'),
+    ('Bruno Tadeu', 'bruno.tadeu@outlook.com', '*****'),
+    ('Marcus Anjos', 'marcus.anjos@yahoo.com.br', '*****'),
+    ('Joao Ambrosio', 'joao.ambrosio@yahoo.com.br', '*****'),
+    ('Cicera Cleria', 'cicera.cleria@outlook.com', '*****'),
+    ('Jose Leal', 'jose.leal@outlook.com', '*****')
 `
 
 function criaTabelaUsr() {
@@ -38,7 +39,7 @@ function populaTabelaUsr() {
 }
 
 
-//TAREFAS
+//CRIAÇÃO DA TABELA DE TAREFAS
 const TAREFAS_SCHEMA = `
 CREATE TABLE IF NOT EXISTS TAREFAS (
     ID INTEGER PRIMARY KEY AUTOINCREMENT, 
@@ -52,12 +53,12 @@ CREATE TABLE IF NOT EXISTS TAREFAS (
 
 const ADD_TAREFAS_DATA = `INSERT INTO TAREFAS (TITULO, DESCRICAO, STATUS, DATACRIACAO, ID_USUARIO)
 VALUES 
-       ('Yoga', 'Fazer yoga segunda e quarta', 'Continuo', '2021-01-10', 2),
-       ('Médico', 'Consulta com Dr. Ayrton sexta', 'TODO', '2021-01-13', 1),
-       ('Pagar contas', 'Pagar boletos de água e luz', 'DOING', '2021-01-02', 2),
-       ('Mercado', 'Pegar lista na geladeira e fazer compras', 'TODO', '2021-01-08', 2),
-       ('Dentista', 'Consulta com Dra Andreia sexta', 'TODO', '2021-01-11', 1),
-       ('Pagar financiamento carro', 'Pagar parcela do mês do financiamento', 'Contínuo', '2021-01-05', 3)
+       ('Academia', 'Ir as segundas, quartas e sextas', 'contínuo', '2021-01-10', 9),
+       ('Médico', 'Consulta com a nutricionista', 'à fazer', '2021-02-20', 6),
+       ('Pagar contas', 'Pagar boletos de água e luz', 'fazendo', '2021-02-16', 2),
+       ('Mercado', 'Fazer as compras da lista', 'à fazer', '2021-02-20', 2),
+       ('Dentista', 'Consulta com a Dra Bruna na quinta', 'TODO', '2021-02-18', 6),
+       ('Pagar financiamento carro', 'Pagar parcela do mês vigente', 'contínuo', '2021-02-30', 3)
 `
 
 function criaTabelaTarefas() {
